@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Day to Go Babyy! 🎈</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background: linear-gradient(to bottom, black, white);
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+        .balloon {
+            position: absolute;
+            bottom: -100px;
+            width: 50px;
+            height: 70px;
+            background-color: red;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: rise 5s linear forwards;
+        }
+        @keyframes rise {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-120vh); opacity: 0; }
+        }
+        .hidden { display: none; }
+        .message {
+            font-size: 3rem;
+            color: white;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .collage {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, auto);
+            grid-gap: 10px;
+            max-width: 600px;
+            margin-top: 20px;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .collage img {
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            width: 100%;
+            height: 230px;
+        }
+        .card {
+            display: none;
+            width: 600px;
+            padding: 20px;
+            background: white;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            for(let i = 0; i < 100; i++) {
+                let balloon = document.createElement("div");
+                balloon.classList.add("balloon");
+                balloon.style.left = Math.random() * 100 + "vw";
+                balloon.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 60%)`;
+                balloon.style.animationDuration = (Math.random() * 3 + 2) + "s";
+                document.body.appendChild(balloon);
+                setTimeout(() => balloon.remove(), 5000);
+            }
+            setTimeout(() => {
+                document.querySelector(".message").style.opacity = "1";
+                document.querySelector(".collage").style.opacity = "1";
+            }, 7000);
+        });
+        function showCard() {
+            document.querySelector(".collage").style.display = "none";
+            document.querySelector(".card").style.display = "block";
+        }
+    </script>
+    <h1 class="message">One Day to go Babyy😍😘</h1>
+    <div class="collage" onclick="showCard()">
+        <img src="img1.jpg" alt="Memory 1">
+        <img src="img2.jpg" alt="Memory 2">
+        <img src="img7.jpg" alt="Memory 3">
+        <img src="img4.jpg" alt="Memory 4">
+        <img src="img5.jpg" alt="Memory 5">
+        <img src="img6.jpg" alt="Memory 6">
+    </div>
+    <div class="card">
+        <h2>Happy Birthday to My Universe! 🎉</h2>
+        <p>Babe,
+            I love you. Not for your warm embrace, not for your dazzling smile, but only for being you. You are my truest source of inspiration, love, and affection; you are the woman of my dreams. You add zeal to my life and make me truly the happiest being in this world. I wish I was a poet just so I could write poems in your love’s honor. The love that I feel for you is ever expanding, to infinity and beyond!</p>
+    </div>
+</body>
+</html>
